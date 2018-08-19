@@ -216,13 +216,6 @@ void Renderer::Render(Cloth& cloth, Sphere& sphere, Plane& ground) {
     glfwSwapBuffers(window);
 }
 
-void Renderer::Terminate() {
-    glDeleteVertexArrays(1, &clothVAO);
-    glDeleteBuffers(1, &clothPositionVBO);
-    glDeleteBuffers(1, &clothEBO);
-    glfwTerminate();
-}
-
 void Renderer::key_callback(GLFWwindow* window, int key, int scancode, int action, int mode){
     if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
         glfwSetWindowShouldClose(window, GL_TRUE);
@@ -273,4 +266,13 @@ void Renderer::mouseButton_callback(GLFWwindow * window, int button, int action,
 
 void Renderer::scroll_callback(GLFWwindow* window, double xoffset, double yoffset){
     camera->ProcessMouseScroll(yoffset);
+}
+void Renderer::Terminate() {
+    glDeleteVertexArrays(1, &clothVAO);
+    glDeleteBuffers(1, &clothPositionVBO);
+    glDeleteBuffers(1, &clothEBO);
+    glfwTerminate();
+    delete lightShader;
+    delete depthShader;
+    delete camera;
 }
