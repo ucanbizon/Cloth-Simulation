@@ -10,8 +10,11 @@ http://pub.ist.ac.at/~edels/Papers/2002-J-01-FastBoxIntersection.pdf
 
 
 Required dependencies:
+
 GLFW
+
 GL3W
+
 Eigen
 
 Built with Visual Studio 2017
