@@ -12,6 +12,6 @@ uniform mat4 lightSpaceMatrix;
 void main()
 {
     gl_Position = projection * view * vec4(position, 1.0f);
-	fragNormal = normalize(normal);
-	shadowCoord = lightSpaceMatrix * vec4(position, 1.0f);
+    fragNormal = normalize(normal);
+    shadowCoord = lightSpaceMatrix * vec4(position, 1.0f);
 }

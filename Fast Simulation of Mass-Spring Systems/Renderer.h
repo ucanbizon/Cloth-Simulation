@@ -9,62 +9,33 @@ class Plane;
 class Renderer {
 
 public:
-	Renderer(int screenWidth, int screenHeight, Cloth& cloth, Sphere& sphere, Plane& ground);
-	void Render(Cloth& cloth, Sphere& sphere, Plane& ground);
-	void UpdateNormal(Cloth& cloth);
-	void Terminate();
-	GLFWwindow* GetWindow() { return window;}
+    Renderer(int screenWidth, int screenHeight, Cloth& cloth, Sphere& sphere, Plane& ground);
+    void Render(Cloth& cloth, Sphere& sphere, Plane& ground);
+    void UpdateNormal(Cloth& cloth);
+    void Terminate();
+    GLFWwindow* GetWindow() { return window;}
 
 private:
-	static void do_movement();
-	static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
-	static void mouseMove_callback(GLFWwindow* window, double xpos, double ypos);
-	static void mouseButton_callback(GLFWwindow* window, int button, int action, int mods);
-	static void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
-	static bool keys[1024];
-	static float lastX, lastY;
-	static bool cameraRotEnabled;
+    static void do_movement();
+    static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
+    static void mouseMove_callback(GLFWwindow* window, double xpos, double ypos);
+    static void mouseButton_callback(GLFWwindow* window, int button, int action, int mods);
+    static void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
+    static bool keys[1024];
+    static float lastX, lastY;
+    static bool cameraRotEnabled;
 
-	static GLFWwindow* window;
-	static Shader* lightShader;
-	static Shader* depthShader;
-	static Camera*  camera;
-	static int screenWidth, screenHeight;
+    static GLFWwindow* window;
+    static Shader* lightShader;
+    static Shader* depthShader;
+    static Camera*  camera;
+    static int screenWidth, screenHeight;
 
-	static float deltaTime;
-	static float lastFrame;
+    static float deltaTime;
+    static float lastFrame;
 
-	static unsigned int clothEBO, clothVAO, clothPositionVBO, clothNormalVBO;
-	static unsigned int sphereEBO, sphereVAO, spherePositionVBO, sphereNormalVBO;
-	static unsigned int groundEBO, groundVAO, groundPositionVBO, groundNormalVBO;
-	static unsigned int depthMap, depthMapFBO;
+    static unsigned int clothEBO, clothVAO, clothPositionVBO, clothNormalVBO;
+    static unsigned int sphereEBO, sphereVAO, spherePositionVBO, sphereNormalVBO;
+    static unsigned int groundEBO, groundVAO, groundPositionVBO, groundNormalVBO;
+    static unsigned int depthMap, depthMapFBO;
 };
-
-
-//class Cloth;
-//namespace renderer {
-//
-//	int ClothRendererInit(int screenWidth, int screenHeight, Cloth& cloth);
-//	void Render(Cloth& cloth);
-//	void Terminate();
-//
-//	void do_movement();
-//	void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
-//	void mouseMove_callback(GLFWwindow* window, double xpos, double ypos);
-//	void mouseButton_callback(GLFWwindow* window, int button, int action, int mods);
-//	void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
-//	bool keys[1024];
-//	float lastX, lastY;
-//	bool cameraRotEnabled;
-//
-//	extern GLFWwindow* window;
-//	extern Shader* shader;
-//	extern Camera* camera;
-//	extern int screenWidth, screenHeight;
-//
-//	extern float deltaTime;
-//	extern float lastFrame;
-//
-//	extern unsigned int clothEBO, clothVAO, clothVBO;
-//	extern Eigen::VectorXi clothIndices;
-//}
