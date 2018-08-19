@@ -450,7 +450,7 @@ void Cloth::SelfCollision(FastBox& fastbox) {
 }
 
 void Cloth::SetExternalForce() {
-    float force = 0.016;
+    float force = timeStep * timeStep * 10;
     fext.resize(nodeCount * 3);
     fext = Eigen::VectorXf::Zero(nodeCount * 3);
     for (unsigned int i = 0; i < nodeCount; i++) {
